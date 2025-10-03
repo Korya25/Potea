@@ -1,3 +1,3 @@
 class PrefKeys {
-  static const String showOnboarding = 'showOnboarding';
+  static const String theFristTimeStartApp = 'theFristTimeStartApp';
 }
