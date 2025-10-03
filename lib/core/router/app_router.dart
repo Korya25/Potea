@@ -11,7 +11,7 @@ import 'package:potea/features/home/presentation/views/home_view.dart';
 class AppRouter {
   static final GoRouter router = GoRouter(
     initialLocation: Prefs.getBool(PrefKeys.theFristTimeStartApp) == true
-        ? AppRoutes.splash
+        ? AppRoutes.unessentialSplash
         : AppRoutes.unessentialSplash,
     routes: [
       GoRoute(

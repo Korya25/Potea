@@ -20,7 +20,10 @@ void main() async {
   await Prefs.init();
 
   setupGetit();
-  runApp(const Potea());
+  runApp(
+    // DevicePreview(enabled: !kReleaseMode, builder: (context) => Potea()),
+    const Potea(),
+  );
 }
 
 class Potea extends StatelessWidget {
@@ -31,7 +34,7 @@ class Potea extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       // Themes
-      theme: AppTheme.lightTheme(),
+      theme: AppTheme.darkTheme(),
       darkTheme: AppTheme.darkTheme(),
       themeMode: ThemeMode.system,
 

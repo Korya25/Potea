@@ -34,8 +34,8 @@ class UnessentialSplashDetail extends StatelessWidget {
             ),
             Text(
               'The best plant e-commerce & online store\napp of the century for tour needs!',
-              style: context.bodyMedium.copyWith(
-                color: AppColors.darkTextAndIconPrimary,
+              style: context.bodyLarge.copyWith(
+                fontSize: 16,
                 fontWeight: FontWeight.w100,
               ),
             ),

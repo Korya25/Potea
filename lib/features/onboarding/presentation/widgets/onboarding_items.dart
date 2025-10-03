@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:potea/core/animations/animate_do.dart';
 import 'package:potea/core/constants/app_spaces.dart';
 import 'package:potea/core/utils/context_extensions.dart';
 import 'package:potea/features/onboarding/data/onboarding_items_model.dart';
@@ -16,7 +17,7 @@ class OnboardingItems extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: 400,
+              height: context.screenHeight * 0.4,
               child: ShaderMask(
                 shaderCallback: (rect) {
                   return const LinearGradient(
@@ -27,17 +28,24 @@ class OnboardingItems extends StatelessWidget {
                   ).createShader(rect);
                 },
                 blendMode: BlendMode.dstIn,
-                child: Image.asset(itemsModel.imagePath),
+                child: AppAnimations.bounceIn(
+                  delay: Duration(milliseconds: 350),
+                  Image.asset(itemsModel.imagePath),
+                ),
               ),
             ),
 
-            Text(
-              itemsModel.title,
-              style: context.bodyLarge.copyWith(
-                fontSize: 32,
-                fontWeight: FontWeight.w700,
+            AppAnimations.fadeIn(
+              delay: Duration(milliseconds: 400),
+
+              Text(
+                itemsModel.title,
+                style: context.bodyLarge.copyWith(
+                  fontSize: 32,
+                  fontWeight: FontWeight.w700,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
           ],
         ),
