@@ -10,7 +10,7 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.splash,
         name: AppRoutes.splash,
-        pageBuilder: (context, state) => AppTransitions.slideFromRight(
+        pageBuilder: (context, state) => AppTransitions.noTransition(
           context: context,
           state: state,
           child: const Scaffold(),
