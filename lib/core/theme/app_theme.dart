@@ -19,14 +19,14 @@ class AppTheme {
           height: 1.5,
         ),
         bodyMedium: GoogleFonts.lexend(
-          color: AppColors.darkTextAndIconSecondary,
+          color: AppColors.textAndIconGrey,
           fontSize: 16,
           fontWeight: FontWeight.w500,
           letterSpacing: 0.25,
           height: 1.4,
         ),
         bodySmall: GoogleFonts.lexend(
-          color: AppColors.darkTextAndIconThritly,
+          color: AppColors.textAndIconGrey,
           fontSize: 14,
           fontWeight: FontWeight.w400,
           letterSpacing: 0.2,
@@ -61,14 +61,14 @@ class AppTheme {
           height: 1.5,
         ),
         bodyMedium: GoogleFonts.lexend(
-          color: AppColors.lightTextAndIconSecondary,
+          color: AppColors.textAndIconGrey,
           fontSize: 16,
           fontWeight: FontWeight.w500,
           letterSpacing: 0.25,
           height: 1.4,
         ),
         bodySmall: GoogleFonts.lexend(
-          color: AppColors.lightTextAndIconThritly,
+          color: AppColors.textAndIconGrey,
           fontSize: 14,
           fontWeight: FontWeight.w400,
           letterSpacing: 0.2,
