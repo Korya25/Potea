@@ -20,11 +20,11 @@ void main() async {
   await Prefs.init();
 
   setupGetit();
-  runApp(const MyApp());
+  runApp(const Potea());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Potea extends StatelessWidget {
+  const Potea({super.key});
 
   // This widget is the root of your application.
   @override
