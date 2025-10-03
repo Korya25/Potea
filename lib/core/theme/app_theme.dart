@@ -11,21 +11,21 @@ class AppTheme {
       brightness: Brightness.dark,
       iconTheme: const IconThemeData(color: AppColors.darkTextAndIconPrimary),
       textTheme: TextTheme(
-        bodyLarge: GoogleFonts.poppins(
+        bodyLarge: GoogleFonts.lexend(
           color: AppColors.darkTextAndIconPrimary,
           fontSize: 18,
           fontWeight: FontWeight.w600,
           letterSpacing: 0.5,
           height: 1.5,
         ),
-        bodyMedium: GoogleFonts.poppins(
+        bodyMedium: GoogleFonts.lexend(
           color: AppColors.darkTextAndIconSecondary,
           fontSize: 16,
           fontWeight: FontWeight.w500,
           letterSpacing: 0.25,
           height: 1.4,
         ),
-        bodySmall: GoogleFonts.poppins(
+        bodySmall: GoogleFonts.lexend(
           color: AppColors.darkTextAndIconThritly,
           fontSize: 14,
           fontWeight: FontWeight.w400,
@@ -36,7 +36,7 @@ class AppTheme {
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.darkBackgroundSecondary,
         iconTheme: const IconThemeData(color: AppColors.darkTextAndIconPrimary),
-        titleTextStyle: GoogleFonts.poppins(
+        titleTextStyle: GoogleFonts.lexend(
           color: AppColors.darkTextAndIconPrimary,
           fontSize: 20,
           fontWeight: FontWeight.bold,
@@ -53,21 +53,21 @@ class AppTheme {
       brightness: Brightness.light,
       iconTheme: const IconThemeData(color: AppColors.lightTextAndIconPrimary),
       textTheme: TextTheme(
-        bodyLarge: GoogleFonts.poppins(
+        bodyLarge: GoogleFonts.lexend(
           color: AppColors.lightTextAndIconPrimary,
           fontSize: 18,
           fontWeight: FontWeight.w600,
           letterSpacing: 0.5,
           height: 1.5,
         ),
-        bodyMedium: GoogleFonts.poppins(
+        bodyMedium: GoogleFonts.lexend(
           color: AppColors.lightTextAndIconSecondary,
           fontSize: 16,
           fontWeight: FontWeight.w500,
           letterSpacing: 0.25,
           height: 1.4,
         ),
-        bodySmall: GoogleFonts.poppins(
+        bodySmall: GoogleFonts.lexend(
           color: AppColors.lightTextAndIconThritly,
           fontSize: 14,
           fontWeight: FontWeight.w400,
@@ -80,7 +80,7 @@ class AppTheme {
         iconTheme: const IconThemeData(
           color: AppColors.lightTextAndIconPrimary,
         ),
-        titleTextStyle: GoogleFonts.poppins(
+        titleTextStyle: GoogleFonts.lexend(
           color: AppColors.lightTextAndIconPrimary,
           fontSize: 20,
           fontWeight: FontWeight.bold,

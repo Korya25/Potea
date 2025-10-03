@@ -12,7 +12,7 @@ class AppRouter {
   static final GoRouter router = GoRouter(
     initialLocation: Prefs.getBool(PrefKeys.theFristTimeStartApp) == true
         ? AppRoutes.splash
-        : AppRoutes.splash,
+        : AppRoutes.unessentialSplash,
     routes: [
       GoRoute(
         path: AppRoutes.splash,
