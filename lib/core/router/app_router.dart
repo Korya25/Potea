@@ -70,7 +70,7 @@ class AppRouter {
         pageBuilder: (context, state) => AppTransitions.noTransition(
           context: context,
           state: state,
-          child: const SignUpView(),
+          child: const SignupView(),
         ),
       ),
       GoRoute(
@@ -79,7 +79,7 @@ class AppRouter {
         pageBuilder: (context, state) => AppTransitions.noTransition(
           context: context,
           state: state,
-          child: const ForgotPassView(),
+          child: const ForgotPasswordView(),
         ),
       ),
 
