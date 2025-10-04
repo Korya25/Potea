@@ -10,18 +10,17 @@ class CustomSocialButton extends StatelessWidget {
     super.key,
     required this.svgPath,
     required this.title,
-    this.onTAp,
+    this.onTap,
     this.svgColor,
   });
   final String svgPath;
   final String title;
-  final void Function()? onTAp;
+  final void Function()? onTap;
   final Color? svgColor;
   @override
   Widget build(BuildContext context) {
     return CustomButton(
-      onTap: onTAp,
-      hight: 50,
+      onTap: onTap,
       buttonColor: AppColors.white,
       borderRadius: 12,
       child: Padding(
@@ -34,13 +33,13 @@ class CustomSocialButton extends StatelessWidget {
             children: [
               // google icon
               // ignore: deprecated_member_use
-              SvgPicture.asset(svgPath, width: 30, color: svgColor),
+              SvgPicture.asset(svgPath, width: 26, color: svgColor),
 
               // title
               Text(
                 title,
                 style: context.font14BlackW400.copyWith(
-                  fontSize: 18,
+                  fontSize: 16,
                   height: 1.5,
                   fontWeight: FontWeight.w300,
                 ),

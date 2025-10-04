@@ -23,8 +23,8 @@ void main() async {
 
   setupGetit();
   runApp(
-    DevicePreview(enabled: !kReleaseMode, builder: (context) => Potea()),
-    // const Potea(),
+    // DevicePreview(enabled: !kReleaseMode, builder: (context) => Potea()),
+    const Potea(),
   );
 }
 

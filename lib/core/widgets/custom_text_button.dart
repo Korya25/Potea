@@ -5,22 +5,28 @@ import 'package:potea/core/utils/context_extensions.dart';
 class CustomTextButton extends StatefulWidget {
   const CustomTextButton({
     super.key,
-    this.prefixText,
-    required this.actionText,
     this.onTap,
-    this.prefixStyle,
-    this.actionStyle,
+    required this.fristTitle,
+    this.secondTitle,
+    this.firstColor,
+    this.secondColor,
+    this.fontSize = 14,
+    this.fontWeight,
     this.hoverColor,
     this.enabled = true,
+    this.padding = const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
   });
 
-  final String? prefixText;
-  final String actionText;
-  final VoidCallback? onTap;
-  final TextStyle? prefixStyle;
-  final TextStyle? actionStyle;
+  final void Function()? onTap;
+  final String fristTitle;
+  final String? secondTitle;
+  final Color? firstColor;
+  final Color? secondColor;
+  final double? fontSize;
+  final FontWeight? fontWeight;
   final Color? hoverColor;
   final bool enabled;
+  final EdgeInsets padding;
 
   @override
   State<CustomTextButton> createState() => _CustomTextButtonState();
@@ -28,20 +34,12 @@ class CustomTextButton extends StatefulWidget {
 
 class _CustomTextButtonState extends State<CustomTextButton> {
   bool _isHovered = false;
+  bool _isPressed = false;
 
   @override
   Widget build(BuildContext context) {
-    final Color baseColor =
-        widget.actionStyle?.color ?? AppColors.textAndIconPrimary;
-    final Color hoverColor = widget.hoverColor ?? AppColors.textAndIconGrey;
-
-    final TextStyle prefixBaseStyle =
-        widget.prefixStyle ??
-        context.font14BlackW400.copyWith(color: AppColors.textAndIconWhite);
-
-    final TextStyle actionBaseStyle =
-        widget.actionStyle ??
-        context.font14BlackW400.copyWith(color: baseColor);
+    final hoverColor = widget.hoverColor ?? AppColors.textAndIconBlack;
+    final isActive = _isHovered || _isPressed;
 
     return MouseRegion(
       onEnter: (_) {
@@ -51,26 +49,46 @@ class _CustomTextButtonState extends State<CustomTextButton> {
         if (widget.enabled) setState(() => _isHovered = false);
       },
       child: GestureDetector(
+        behavior: HitTestBehavior.translucent,
+        onTapDown: (_) {
+          if (widget.enabled) setState(() => _isPressed = true);
+        },
+        onTapUp: (_) {
+          if (widget.enabled) setState(() => _isPressed = false);
+        },
+        onTapCancel: () {
+          if (widget.enabled) setState(() => _isPressed = false);
+        },
         onTap: widget.enabled ? widget.onTap : null,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (widget.prefixText != null) ...[
+        child: Padding(
+          padding: widget.padding,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            spacing: 4,
+            children: [
               Text(
-                widget.prefixText!,
-                style: prefixBaseStyle.copyWith(
-                  color: _isHovered ? hoverColor : prefixBaseStyle.color,
+                widget.fristTitle,
+                style: context.font16WhiteW300.copyWith(
+                  color: isActive
+                      ? hoverColor
+                      : (widget.firstColor ?? AppColors.textAndIconWhite),
+                  fontSize: widget.fontSize,
+                  fontWeight: widget.fontWeight,
                 ),
               ),
-              const SizedBox(width: 4),
+              if (widget.secondTitle != null)
+                Text(
+                  widget.secondTitle!,
+                  style: context.font16WhiteW300.copyWith(
+                    color: isActive
+                        ? hoverColor
+                        : (widget.secondColor ?? AppColors.textAndIconPrimary),
+                    fontSize: widget.fontSize,
+                    fontWeight: widget.fontWeight,
+                  ),
+                ),
             ],
-            Text(
-              widget.actionText,
-              style: actionBaseStyle.copyWith(
-                color: _isHovered ? hoverColor : baseColor,
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
