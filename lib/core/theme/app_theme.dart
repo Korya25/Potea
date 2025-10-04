@@ -34,7 +34,7 @@ class AppTheme {
         ),
       ),
       appBarTheme: AppBarTheme(
-        backgroundColor: AppColors.darkBackgroundSecondary,
+        backgroundColor: AppColors.darkBackgroundPrimary,
         iconTheme: const IconThemeData(color: AppColors.textAndIconWhite),
         titleTextStyle: GoogleFonts.lexend(
           color: AppColors.textAndIconWhite,
