@@ -53,6 +53,13 @@ class _AuthGateBody extends StatelessWidget {
 
             // Auth Gate Fotter Button
             AuthGateFotterButton(),
+
+            /*
+  AppAnimations.bounceIn(
+              AuthGateFotterButton(),
+              delay: Duration(milliseconds: 600),
+            ),
+            */
           ],
         ),
       ),

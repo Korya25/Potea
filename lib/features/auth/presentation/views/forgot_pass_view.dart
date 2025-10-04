@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:potea/core/constants/app_constants.dart';
 import 'package:potea/core/constants/app_spaces.dart';
 import 'package:potea/features/auth/presentation/widgets/common/auth_header.dart';
 import 'package:potea/features/auth/presentation/widgets/forms/forgot_password_form.dart';
@@ -19,7 +20,10 @@ class ForgotPasswordView extends StatelessWidget {
               const Gap(40),
 
               // header
-              const AuthHeader(title: 'Forgot Your Password?'),
+              Hero(
+                tag: HeroTags.loginForgotPassHeader,
+                child: const AuthHeader(title: 'Forgot Your Password?'),
+              ),
               const Gap(26),
 
               // form

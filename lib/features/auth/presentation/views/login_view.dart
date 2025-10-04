@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:potea/core/constants/app_constants.dart';
 import 'package:potea/core/constants/app_spaces.dart';
 import 'package:potea/core/widgets/common/custom_divider_with_text.dart';
 import 'package:potea/features/auth/presentation/widgets/common/auth_google_button.dart';
@@ -22,7 +23,10 @@ class LoginView extends StatelessWidget {
               Gap(40),
 
               // app logoName
-              AuthHeader(title: 'Login to Your Account?'),
+              Hero(
+                tag: HeroTags.loginForgotPassHeader,
+                child: AuthHeader(title: 'Login to Your Account?'),
+              ),
               Gap(26),
 
               // login form

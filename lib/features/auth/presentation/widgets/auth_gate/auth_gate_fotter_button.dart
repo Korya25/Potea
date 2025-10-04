@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+import 'package:potea/core/animations/animate_do.dart';
 import 'package:potea/core/constants/app_assets.dart';
 import 'package:potea/core/router/app_routes.dart';
 import 'package:potea/core/theme/app_colors.dart';
@@ -18,22 +19,33 @@ class AuthGateFotterButton extends StatelessWidget {
         // TODO: check user to suggest account aready logged in to login
 
         // sign up with Goolgle
-        AuthGoogleButton(),
+        AppAnimations.fadeInUp(
+          delay: Duration(milliseconds: 600),
+
+          AuthGoogleButton(),
+        ),
         Gap(18),
         // sign up with email
-        CustomSocialButton(
-          onTap: () => context.pushNamed(AppRoutes.signUp),
-          svgPath: AppAssets.emailSvg,
-          title: 'Sign up with Email',
-          svgColor: AppColors.textAndIconBlack.withAlpha(220),
+        AppAnimations.fadeInUp(
+          delay: Duration(milliseconds: 900),
+          CustomSocialButton(
+            onTap: () => context.pushNamed(AppRoutes.signUp),
+            svgPath: AppAssets.emailSvg,
+            title: 'Sign up with Email',
+            svgColor: AppColors.textAndIconBlack.withAlpha(220),
+          ),
         ),
 
         // aready have an account
         Gap(18),
-        CustomTextButton(
-          fristTitle: "Already have account?",
-          secondTitle: "Log in",
-          onTap: () => context.pushNamed(AppRoutes.login),
+        AppAnimations.fadeInUp(
+          delay: Duration(milliseconds: 1200),
+
+          CustomTextButton(
+            fristTitle: "Already have account?",
+            secondTitle: "Log in",
+            onTap: () => context.pushNamed(AppRoutes.login),
+          ),
         ),
       ],
     );
