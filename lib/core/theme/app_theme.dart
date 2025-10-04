@@ -9,10 +9,10 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.darkBackgroundPrimary,
       primaryColor: AppColors.primary,
       brightness: Brightness.dark,
-      iconTheme: const IconThemeData(color: AppColors.darkTextAndIconPrimary),
+      iconTheme: const IconThemeData(color: AppColors.textAndIconWhite),
       textTheme: TextTheme(
         bodyLarge: GoogleFonts.lexend(
-          color: AppColors.darkTextAndIconPrimary,
+          color: AppColors.textAndIconWhite,
           fontSize: 18,
           fontWeight: FontWeight.w600,
           letterSpacing: 0.5,
@@ -26,7 +26,7 @@ class AppTheme {
           height: 1.4,
         ),
         bodySmall: GoogleFonts.lexend(
-          color: AppColors.textAndIconGrey,
+          color: AppColors.textAndIconBlack,
           fontSize: 14,
           fontWeight: FontWeight.w400,
           letterSpacing: 0.2,
@@ -35,9 +35,9 @@ class AppTheme {
       ),
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.darkBackgroundSecondary,
-        iconTheme: const IconThemeData(color: AppColors.darkTextAndIconPrimary),
+        iconTheme: const IconThemeData(color: AppColors.textAndIconWhite),
         titleTextStyle: GoogleFonts.lexend(
-          color: AppColors.darkTextAndIconPrimary,
+          color: AppColors.textAndIconWhite,
           fontSize: 20,
           fontWeight: FontWeight.bold,
         ),

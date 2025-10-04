@@ -67,6 +67,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                         currentIndex: currentPage,
                       ),
                       CustomButton(
+                        borderRadius: 24,
                         title:
                             OnboardingItemsModel.onboardingItemsList.length -
                                     1 ==

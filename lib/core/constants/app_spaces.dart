@@ -18,6 +18,7 @@ class AppSpaces {
   static const EdgeInsets ph24 = EdgeInsets.symmetric(horizontal: 24);
 
   // Padding vertical
+  static const EdgeInsets pv6 = EdgeInsets.symmetric(vertical: 6);
   static const EdgeInsets pv8 = EdgeInsets.symmetric(vertical: 8);
   static const EdgeInsets pv12 = EdgeInsets.symmetric(vertical: 12);
   static const EdgeInsets pv16 = EdgeInsets.symmetric(vertical: 16);

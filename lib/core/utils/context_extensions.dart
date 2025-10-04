@@ -5,9 +5,9 @@ extension ContextExtensions on BuildContext {
   ThemeData get theme => Theme.of(this);
   TextTheme get textTheme => theme.textTheme;
 
-  TextStyle get bodyLarge => textTheme.bodyLarge!;
-  TextStyle get bodyMedium => textTheme.bodyMedium!;
-  TextStyle get bodySmall => textTheme.bodySmall!;
+  TextStyle get font16WhiteW300 => textTheme.bodyLarge!;
+  TextStyle get font16GreyW50 => textTheme.bodyMedium!;
+  TextStyle get font14BlackW400 => textTheme.bodySmall!;
 
   /// Colors
   Color get primaryColor => theme.primaryColor;

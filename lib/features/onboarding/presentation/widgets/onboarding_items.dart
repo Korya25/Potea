@@ -40,7 +40,7 @@ class OnboardingItems extends StatelessWidget {
 
               Text(
                 itemsModel.title,
-                style: context.bodyLarge.copyWith(
+                style: context.font16WhiteW300.copyWith(
                   fontSize: 32,
                   fontWeight: FontWeight.w700,
                 ),

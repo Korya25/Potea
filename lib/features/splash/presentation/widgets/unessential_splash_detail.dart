@@ -20,21 +20,21 @@ class UnessentialSplashDetail extends StatelessWidget {
           children: [
             Text(
               'Welcom to 👋',
-              style: context.bodyLarge.copyWith(fontSize: 28),
+              style: context.font16WhiteW300.copyWith(fontSize: 28),
             ),
             TypeWriterText(
               text: 'Potea',
-              textStyle: context.bodyLarge.copyWith(
+              textStyle: context.font16WhiteW300.copyWith(
                 fontSize: 60,
-                color: AppColors.primary,
+                color: AppColors.textAndIconPrimary,
               ),
-              cursorColor: AppColors.primary,
+              cursorColor: AppColors.textAndIconPrimary,
               charDuration: Duration(milliseconds: 300),
               initialDelay: Duration(milliseconds: 1200),
             ),
             Text(
               'The best plant e-commerce & online store\napp of the century for tour needs!',
-              style: context.bodyLarge.copyWith(
+              style: context.font16WhiteW300.copyWith(
                 fontSize: 16,
                 fontWeight: FontWeight.w100,
               ),

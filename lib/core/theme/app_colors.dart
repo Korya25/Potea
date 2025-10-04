@@ -4,7 +4,9 @@ class AppColors {
   // DARK THEME COLORS
   static const Color darkBackgroundPrimary = Color(0xFF2d2e32);
   static const Color darkBackgroundSecondary = Color(0xFF25262a);
-  static const Color darkTextAndIconPrimary = Color(0xFFffffff);
+  static const Color textAndIconWhite = Color(0xFFffffff);
+  static const Color textAndIconBlack = Color(0xFF000000);
+  static const Color textAndIconPrimary = primary;
 
   // Common colors
   static const Color primary = Color(0xFF1dc877);
