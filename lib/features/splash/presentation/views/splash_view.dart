@@ -17,7 +17,7 @@ class _SplashViewState extends State<SplashView> {
     // navigat
     Future.delayed(Duration(seconds: 2), () {
       if (mounted) {
-        context.goNamed(AppRoutes.home);
+        context.goNamed(AppRoutes.authGate);
       }
     });
   }
