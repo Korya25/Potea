@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:potea/core/constants/app_spaces.dart';
 import 'package:potea/core/theme/app_colors.dart';
 import 'package:potea/core/utils/context_extensions.dart';
-import 'package:potea/core/widgets/custom_button.dart';
+import 'package:potea/core/widgets/common/custom_button.dart';
 
 class CustomSocialButton extends StatelessWidget {
   const CustomSocialButton({

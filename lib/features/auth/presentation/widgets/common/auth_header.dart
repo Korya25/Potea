@@ -11,8 +11,7 @@ class AuthHeader extends StatelessWidget {
     return Column(
       children: [
         AuthLogoName(),
-        Gap(26),
-
+        Gap(40),
         // title
         Text(title, style: context.font16WhiteW300.copyWith(fontSize: 24)),
       ],

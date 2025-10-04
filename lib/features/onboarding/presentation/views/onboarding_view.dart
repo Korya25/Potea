@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:potea/core/animations/animate_do.dart';
 import 'package:potea/core/constants/app_spaces.dart';
 import 'package:potea/core/router/app_routes.dart';
-import 'package:potea/core/widgets/custom_button.dart';
+import 'package:potea/core/widgets/common/custom_button.dart';
 import 'package:potea/features/onboarding/data/onboarding_items_model.dart';
 import 'package:potea/features/onboarding/presentation/widgets/custom_indicator.dart';
 import 'package:potea/features/onboarding/presentation/widgets/onboarding_items.dart';

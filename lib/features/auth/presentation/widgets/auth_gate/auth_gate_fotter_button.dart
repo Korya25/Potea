@@ -4,7 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:potea/core/constants/app_assets.dart';
 import 'package:potea/core/router/app_routes.dart';
 import 'package:potea/core/theme/app_colors.dart';
-import 'package:potea/core/widgets/custom_text_button.dart';
+import 'package:potea/core/widgets/common/custom_text_button.dart';
+import 'package:potea/features/auth/presentation/widgets/common/auth_google_button.dart';
 import 'package:potea/features/auth/presentation/widgets/common/custom_social_button.dart';
 
 class AuthGateFotterButton extends StatelessWidget {
@@ -17,11 +18,7 @@ class AuthGateFotterButton extends StatelessWidget {
         // TODO: check user to suggest account aready logged in to login
 
         // sign up with Goolgle
-        CustomSocialButton(
-          onTap: () {},
-          svgPath: AppAssets.googleSvg,
-          title: 'Sign up with Google',
-        ),
+        AuthGoogleButton(),
         Gap(18),
         // sign up with email
         CustomSocialButton(
