@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:potea_app/core/router/app_router.dart';
 import 'package:potea_app/core/services/bloc/custom_bloc_observer.dart';
 import 'package:potea_app/core/services/getit/get_it_service.dart';
+import 'package:potea_app/core/theme/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +26,10 @@ class PoteaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      // Themes
+      theme: AppTheme.darkTheme(),
+      darkTheme: AppTheme.darkTheme(),
+      themeMode: ThemeMode.system,
       routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
     );
