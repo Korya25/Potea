@@ -7,8 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:potea_app/main.dart';
+import 'package:potea_app/app/potea.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

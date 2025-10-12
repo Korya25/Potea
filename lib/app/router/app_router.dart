@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:potea_app/core/router/app_routes.dart';
-import 'package:potea_app/core/router/app_transitions.dart';
+import 'package:potea_app/app/router/app_routes.dart';
+import 'package:potea_app/app/router/app_transitions.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
