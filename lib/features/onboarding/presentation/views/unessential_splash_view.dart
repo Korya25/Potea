@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:potea_app/app/router/app_routes.dart';
 import 'package:potea_app/app/theme/app_colors.dart';
 import 'package:potea_app/app/widgets/animations/animate_do.dart';
 import 'package:potea_app/app/widgets/animations/type_writer_text.dart';
@@ -19,7 +21,7 @@ class _UnessentialSplashViewState extends State<UnessentialSplashView> {
     // navigat
     Future.delayed(Duration(milliseconds: 4200), () {
       if (mounted) {
-        //   context.goNamed(AppRoutes.onboarding);
+        context.goNamed(AppRoutes.onboarding);
       }
     });
   }

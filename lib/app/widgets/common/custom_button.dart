@@ -91,7 +91,7 @@ class _CustomButtonState extends State<CustomButton> {
                 widget.child ??
                 Text(
                   widget.title ?? 'Add Title',
-                  style: context.font16WhiteW300.copyWith(
+                  style: context.font22WhiteW600.copyWith(
                     color: widget.fontColor ?? Colors.white,
                     fontSize: widget.fontSize,
                     fontWeight: widget.fontWeight,
