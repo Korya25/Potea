@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:potea_app/core/constants/error_messages.dart';
-import 'package:potea_app/core/errors/auth_failure.dart';
+import 'package:potea_app/core/errors/failure.dart';
 import 'package:potea_app/core/models/user_model.dart';
 import 'package:potea_app/core/services/network/network_services.dart';
 import 'package:potea_app/features/auth/data/datasource/auth_local_data_source.dart';
@@ -42,7 +42,7 @@ class AuthRepositoryImpl implements AuthRepository {
     if (kIsWeb) return;
     final isConnected = await networkService.isConnected();
     if (!isConnected) {
-      throw AuthFailure(message: ErrorMessages.noInternet, code: 'NO_INTERNET');
+      throw AuthFailure(ErrorMessages.noInternet, code: 'NO_INTERNET');
     }
   }
 
@@ -60,12 +60,9 @@ class AuthRepositoryImpl implements AuthRepository {
       await localDataSource.cacheUser(user);
       return user;
     } on FirebaseAuthException catch (e) {
-      throw AuthFailure(
-        message: e.message ?? ErrorMessages.firebaseError,
-        code: e.code,
-      );
+      throw AuthFailure(e.message ?? ErrorMessages.firebaseError, code: e.code);
     } catch (e) {
-      throw AuthFailure(message: '${ErrorMessages.unexpectedError}: $e');
+      throw AuthFailure('${ErrorMessages.unexpectedError}: $e');
     }
   }
 
@@ -85,12 +82,9 @@ class AuthRepositoryImpl implements AuthRepository {
       await localDataSource.cacheUser(user);
       return user;
     } on FirebaseAuthException catch (e) {
-      throw AuthFailure(
-        message: e.message ?? ErrorMessages.firebaseError,
-        code: e.code,
-      );
+      throw AuthFailure(e.message ?? ErrorMessages.firebaseError, code: e.code);
     } catch (e) {
-      throw AuthFailure(message: '${ErrorMessages.unexpectedError}: $e');
+      throw AuthFailure('${ErrorMessages.unexpectedError}: $e');
     }
   }
 
@@ -100,12 +94,9 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       await remoteDataSource.sendPasswordResetEmail(email: email);
     } on FirebaseAuthException catch (e) {
-      throw AuthFailure(
-        message: e.message ?? ErrorMessages.firebaseError,
-        code: e.code,
-      );
+      throw AuthFailure(e.message ?? ErrorMessages.firebaseError, code: e.code);
     } catch (e) {
-      throw AuthFailure(message: '${ErrorMessages.unexpectedError}: $e');
+      throw AuthFailure('${ErrorMessages.unexpectedError}: $e');
     }
   }
 
@@ -119,7 +110,7 @@ class AuthRepositoryImpl implements AuthRepository {
       }
       await remoteDataSource.signOut();
     } catch (e) {
-      throw AuthFailure(message: '${ErrorMessages.signOutFailed}: $e');
+      throw AuthFailure('${ErrorMessages.signOutFailed}: $e');
     }
   }
 }

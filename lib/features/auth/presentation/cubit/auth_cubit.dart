@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:potea_app/core/errors/auth_failure.dart';
+import 'package:potea_app/core/errors/failure.dart';
 import 'package:potea_app/features/auth/data/repo/auth_repo.dart';
 import 'package:potea_app/features/auth/presentation/cubit/auth_state.dart';
 
