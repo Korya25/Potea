@@ -6,7 +6,7 @@ import 'package:potea_app/app/theme/app_colors.dart';
 import 'package:potea_app/app/widgets/common/custom_text_button.dart';
 import 'package:potea_app/app/widgets/fields/email_field.dart';
 import 'package:potea_app/app/widgets/fields/password_field.dart';
-import 'package:potea_app/features/auth/presentation/widgets/common/login_button.dart';
+import 'package:potea_app/features/auth/presentation/widgets/common/auth_button.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -50,11 +50,7 @@ class _LoginFormState extends State<LoginForm> {
           ),
           Gap(24),
 
-          LoginButton(
-            emailController: emailController,
-            passwordController: passwordController,
-            formKey: formKey,
-          ),
+          AuthButton(title: 'Login', onTap: () {}),
         ],
       ),
     );

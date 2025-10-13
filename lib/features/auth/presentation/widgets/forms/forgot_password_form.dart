@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:potea_app/app/widgets/common/custom_button.dart';
 import 'package:potea_app/app/widgets/fields/email_field.dart';
+import 'package:potea_app/features/auth/presentation/widgets/common/auth_button.dart';
 
 class ForgotPasswordForm extends StatefulWidget {
   const ForgotPasswordForm({super.key});
@@ -37,7 +38,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
           EmailField(controller: emailController),
           const Gap(24),
 
-          CustomButton(title: 'Send Reset Link', onTap: _submit),
+          AuthButton(title: 'Send Reset Link', onTap: () {}),
         ],
       ),
     );

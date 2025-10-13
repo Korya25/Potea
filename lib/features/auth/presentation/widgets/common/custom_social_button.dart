@@ -19,10 +19,9 @@ class CustomSocialButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomButton(
-      hight: 55,
       onTap: onTap,
       buttonColor: AppColors.dBackSecondary,
-      borderRadius: 16,
+      borderRadius: 8,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [

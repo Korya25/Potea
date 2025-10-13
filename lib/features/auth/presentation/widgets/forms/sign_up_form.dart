@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:potea_app/app/widgets/fields/email_field.dart';
 import 'package:potea_app/app/widgets/fields/password_field.dart';
-import 'package:potea_app/features/auth/presentation/widgets/common/sign_up_button.dart';
+import 'package:potea_app/features/auth/presentation/widgets/common/auth_button.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -31,14 +31,10 @@ class _SignUpFormState extends State<SignUpForm> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           EmailField(controller: emailController),
-          const SizedBox(height: 16),
+          const SizedBox(height: 22),
           PasswordField(controller: passwordController),
           const SizedBox(height: 24),
-          SignUpButton(
-            emailController: emailController,
-            passwordController: passwordController,
-            formKey: formKey,
-          ),
+          AuthButton(title: 'Sign Up', onTap: () {}),
         ],
       ),
     );
