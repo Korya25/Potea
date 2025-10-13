@@ -72,10 +72,7 @@ class AppRouter {
         pageBuilder: (context, state) => AppTransitions.slideFromRight(
           context: context,
           state: state,
-          child: BlocProvider(
-            create: (_) => getIt<AuthCubit>(),
-            child: LoginView(),
-          ),
+          child: LoginView(),
         ),
       ),
       GoRoute(
@@ -84,10 +81,7 @@ class AppRouter {
         pageBuilder: (context, state) => AppTransitions.slideFromRight(
           context: context,
           state: state,
-          child: BlocProvider(
-            create: (_) => getIt<AuthCubit>(),
-            child: SignupView(),
-          ),
+          child: SignupView(),
         ),
       ),
       GoRoute(
@@ -96,10 +90,7 @@ class AppRouter {
         pageBuilder: (context, state) => AppTransitions.slideFromRight(
           context: context,
           state: state,
-          child: BlocProvider(
-            create: (_) => getIt<AuthCubit>(),
-            child: ForgotPasswordView(),
-          ),
+          child: ForgotPasswordView(),
         ),
       ),
       ShellRoute(
@@ -170,24 +161,21 @@ class AppRouter {
             pageBuilder: (context, state) => AppTransitions.slideFromTop(
               context: context,
               state: state,
-              child: BlocProvider(
-                create: (_) => getIt<AuthCubit>(),
-                child: Builder(
-                  builder: (context) {
-                    return Scaffold(
-                      appBar: AppBar(),
-                      body: Center(
-                        child: AuthButton(
-                          title: 'Logout',
-                          onTap: () {
-                            context.read<AuthCubit>().signOut();
-                            context.goNamed(AppRoutes.authGate);
-                          },
-                        ),
+              child: Builder(
+                builder: (context) {
+                  return Scaffold(
+                    appBar: AppBar(),
+                    body: Center(
+                      child: AuthButton(
+                        title: 'Logout',
+                        onTap: () {
+                          context.read<AuthCubit>().signOut();
+                          context.goNamed(AppRoutes.authGate);
+                        },
                       ),
-                    );
-                  },
-                ),
+                    ),
+                  );
+                },
               ),
             ),
           ),

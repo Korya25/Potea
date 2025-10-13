@@ -6,4 +6,5 @@ class ErrorMessages {
   static const userNull = 'No user found';
   static const signOutFailed = 'Failed to sign out';
   static const productNotFound = 'Product not found';
+  static const noInternetAndNoCache = 'No Internet And No Cache';
 }

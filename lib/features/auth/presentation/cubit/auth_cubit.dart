@@ -58,4 +58,16 @@ class AuthCubit extends Cubit<AuthState> {
       emit(AuthError(message: e.message));
     }
   }
+
+  Future<void> refreshUserData() async {
+    emit(AuthLoading());
+    try {
+      final user = await repository.refreshUserData();
+      emit(AuthAuthenticated(user: user));
+    } on AuthFailure catch (_) {
+      emit(AuthUnauthenticated());
+    } catch (_) {
+      emit(AuthUnauthenticated());
+    }
+  }
 }

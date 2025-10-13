@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:potea_app/core/constants/error_messages.dart';
+import 'package:potea_app/core/errors/failure.dart';
 import 'package:potea_app/core/models/user_model.dart';
 import 'package:potea_app/core/constants/database_keys.dart';
 
@@ -18,6 +20,7 @@ abstract class AuthRemoteDataSource {
 
   Future<void> sendPasswordResetEmail({required String email});
   Future<void> signOut();
+  Future<UserModel> getUserByUid(String uid);
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -87,6 +90,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       DatabaseKeys.uid: user.uid,
       DatabaseKeys.email: email,
       DatabaseKeys.name: name,
+      DatabaseKeys.role: DatabaseKeys.roleUser,
     });
 
     return userModel;
@@ -95,6 +99,20 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   @override
   Future<void> sendPasswordResetEmail({required String email}) async {
     await firebaseAuth.sendPasswordResetEmail(email: email);
+  }
+
+  @override
+  Future<UserModel> getUserByUid(String uid) async {
+    final snapshot = await FirebaseFirestore.instance
+        .collection(DatabaseKeys.users)
+        .doc(uid)
+        .get();
+
+    if (!snapshot.exists) {
+      throw AuthFailure(ErrorMessages.userNull);
+    }
+
+    return UserModel.fromMap(snapshot.data()!);
   }
 
   @override

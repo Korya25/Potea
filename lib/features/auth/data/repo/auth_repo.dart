@@ -22,6 +22,7 @@ abstract class AuthRepository {
 
   Future<void> sendPasswordResetEmail({required String email});
   Future<void> signOut();
+  Future<UserModel> refreshUserData();
 }
 
 /// Repository implementation
@@ -95,6 +96,36 @@ class AuthRepositoryImpl implements AuthRepository {
       await remoteDataSource.sendPasswordResetEmail(email: email);
     } on FirebaseAuthException catch (e) {
       throw AuthFailure(e.message ?? ErrorMessages.firebaseError, code: e.code);
+    } catch (e) {
+      throw AuthFailure('${ErrorMessages.unexpectedError}: $e');
+    }
+  }
+
+  @override
+  Future<UserModel> refreshUserData() async {
+    try {
+      final currentUser = firebaseAuth.currentUser;
+      if (currentUser == null) {
+        throw AuthFailure(ErrorMessages.userNull, code: 'NO_USER');
+      }
+
+      final uid = currentUser.uid;
+
+      try {
+        await _checkConnection();
+
+        final latestUser = await remoteDataSource.getUserByUid(uid);
+        await localDataSource.cacheUser(latestUser);
+
+        return latestUser;
+      } catch (_) {
+        final cachedUser = await localDataSource.getCachedUser(uid);
+        if (cachedUser != null) {
+          return cachedUser;
+        } else {
+          throw AuthFailure(ErrorMessages.noInternetAndNoCache);
+        }
+      }
     } catch (e) {
       throw AuthFailure('${ErrorMessages.unexpectedError}: $e');
     }

@@ -6,6 +6,7 @@ class UserModel {
   final String? email;
   final String? phone;
   final String? gender;
+  final String? role;
 
   const UserModel({
     required this.uid,
@@ -13,6 +14,7 @@ class UserModel {
     this.email,
     this.phone,
     this.gender,
+    this.role,
   });
 
   Map<String, dynamic> toMap() => {
@@ -21,6 +23,7 @@ class UserModel {
     DatabaseKeys.email: email,
     DatabaseKeys.phone: phone,
     DatabaseKeys.gender: gender,
+    DatabaseKeys.role: role,
   };
 
   factory UserModel.fromMap(Map<String, dynamic> map) => UserModel(
@@ -29,5 +32,6 @@ class UserModel {
     email: map[DatabaseKeys.email],
     phone: map[DatabaseKeys.phone],
     gender: map[DatabaseKeys.gender],
+    role: map[DatabaseKeys.role],
   );
 }

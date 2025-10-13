@@ -4,7 +4,10 @@ class DatabaseKeys {
   static const String email = 'email';
   static const String phone = 'phone';
   static const String gender = 'gender';
+  static const String role = 'role';
   static const String users = 'users';
+  static const String roleUser = 'roleUser';
+  static const String admin = 'admin';
   static const String id = 'id';
   static const String title = 'title';
   static const String description = 'description';
