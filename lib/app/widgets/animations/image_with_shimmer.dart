@@ -11,6 +11,7 @@ class ImageWithShimmer extends StatelessWidget {
     this.height,
     this.borderRadius,
     this.fit,
+    this.errorWidget,
   });
 
   final String imageUrl;
@@ -18,6 +19,7 @@ class ImageWithShimmer extends StatelessWidget {
   final double? width;
   final double? borderRadius;
   final BoxFit? fit;
+  final Widget? errorWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,7 @@ class ImageWithShimmer extends StatelessWidget {
         child: Container(color: AppColors.textAndIconPrimary, height: height),
       ),
       errorWidget: (_, __, ___) =>
-          const Icon(Icons.error, color: AppColors.red),
+          errorWidget ?? const Icon(Icons.error, color: AppColors.red),
     );
   }
 }

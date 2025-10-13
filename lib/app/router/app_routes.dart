@@ -10,4 +10,7 @@ class AppRoutes {
   static const String cart = '/cart';
   static const String wallet = '/wallet';
   static const String profile = '/profile';
+  static const String admin = '/admin';
+  static const String favorite = '/favorite';
+  static const String notifaction = '/notifaction';
 }

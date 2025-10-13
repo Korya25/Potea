@@ -113,6 +113,35 @@ class AppRouter {
               state: state,
               child: HomeView(),
             ),
+            routes: [
+              GoRoute(
+                path: AppRoutes.notifaction,
+                name: AppRoutes.notifaction,
+                pageBuilder: (context, state) => AppTransitions.slideFromTop(
+                  context: context,
+                  state: state,
+                  child: Scaffold(body: Center(child: Text('Notifaction'))),
+                ),
+              ),
+              GoRoute(
+                path: AppRoutes.favorite,
+                name: AppRoutes.favorite,
+                pageBuilder: (context, state) => AppTransitions.slideFromTop(
+                  context: context,
+                  state: state,
+                  child: Scaffold(body: Center(child: Text('favorite'))),
+                ),
+              ),
+              GoRoute(
+                path: AppRoutes.admin,
+                name: AppRoutes.admin,
+                pageBuilder: (context, state) => AppTransitions.slideFromTop(
+                  context: context,
+                  state: state,
+                  child: Scaffold(body: Center(child: Text('Admin'))),
+                ),
+              ),
+            ],
           ),
           GoRoute(
             path: AppRoutes.cart,
