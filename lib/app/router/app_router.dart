@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:potea_app/app/di/get_it_service.dart';
+import 'package:potea_app/app/presentation/views/main_view.dart';
 import 'package:potea_app/app/router/app_routes.dart';
 import 'package:potea_app/app/router/app_transitions.dart';
 import 'package:potea_app/core/services/prefs/prefs_keys.dart';
@@ -13,6 +14,7 @@ import 'package:potea_app/features/auth/presentation/views/forgot_pass_view.dart
 import 'package:potea_app/features/auth/presentation/views/login_view.dart';
 import 'package:potea_app/features/auth/presentation/views/sign_up_view.dart';
 import 'package:potea_app/features/auth/presentation/widgets/common/auth_button.dart';
+import 'package:potea_app/features/home/presentation/views/home_view.dart';
 import 'package:potea_app/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:potea_app/features/onboarding/presentation/views/splash_view.dart';
 import 'package:potea_app/features/onboarding/presentation/views/unessential_splash_view.dart';
@@ -100,32 +102,65 @@ class AppRouter {
           ),
         ),
       ),
-      GoRoute(
-        path: AppRoutes.home,
-        name: AppRoutes.home,
-        pageBuilder: (context, state) => AppTransitions.fade(
-          context: context,
-          state: state,
-          child: BlocProvider(
-            create: (context) => AuthCubit(repository: getIt<AuthRepository>()),
-            child: Builder(
-              builder: (context) {
-                return Scaffold(
-                  appBar: AppBar(),
-                  body: Center(
-                    child: AuthButton(
-                      title: 'Logout',
-                      onTap: () {
-                        context.read<AuthCubit>().signOut();
-                        context.goNamed(AppRoutes.authGate);
-                      },
-                    ),
-                  ),
-                );
-              },
+      ShellRoute(
+        builder: (context, state, child) => MainView(child: child),
+        routes: [
+          GoRoute(
+            path: AppRoutes.home,
+            name: AppRoutes.home,
+            pageBuilder: (context, state) => AppTransitions.slideFromTop(
+              context: context,
+              state: state,
+              child: HomeView(),
             ),
           ),
-        ),
+          GoRoute(
+            path: AppRoutes.cart,
+            name: AppRoutes.cart,
+            pageBuilder: (context, state) => AppTransitions.slideFromTop(
+              context: context,
+              state: state,
+              child: Scaffold(body: Center(child: Text('Cart'))),
+            ),
+          ),
+          GoRoute(
+            path: AppRoutes.wallet,
+            name: AppRoutes.wallet,
+            pageBuilder: (context, state) => AppTransitions.slideFromTop(
+              context: context,
+              state: state,
+              child: Scaffold(body: Center(child: Text('Profile'))),
+            ),
+          ),
+          GoRoute(
+            path: AppRoutes.profile,
+            name: AppRoutes.profile,
+            pageBuilder: (context, state) => AppTransitions.slideFromTop(
+              context: context,
+              state: state,
+              child: BlocProvider(
+                create: (context) =>
+                    AuthCubit(repository: getIt<AuthRepository>()),
+                child: Builder(
+                  builder: (context) {
+                    return Scaffold(
+                      appBar: AppBar(),
+                      body: Center(
+                        child: AuthButton(
+                          title: 'Logout',
+                          onTap: () {
+                            context.read<AuthCubit>().signOut();
+                            context.goNamed(AppRoutes.authGate);
+                          },
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     ],
   );
