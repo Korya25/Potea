@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:potea_app/core/models/user_model.dart';
 import 'package:potea_app/core/constants/firestore_keys.dart';
 
+/// Remote Data Source
 abstract class AuthRemoteDataSource {
   Future<UserModel> signInWithEmailAndPassword({
     required String email,
@@ -16,7 +17,6 @@ abstract class AuthRemoteDataSource {
   });
 
   Future<void> sendPasswordResetEmail({required String email});
-
   Future<void> signOut();
 }
 
@@ -29,41 +29,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     required this.firestore,
   });
 
-  /// Helper method to build a UserModel from Firebase user + Firestore document.
-  Future<UserModel> _buildUserModel(User? firebaseUser) async {
-    if (firebaseUser == null) {
-      throw FirebaseAuthException(
-        code: 'USER_NULL',
-        message: 'Firebase user is null',
-      );
-    }
-
-    final uid = firebaseUser.uid;
-    final email = firebaseUser.email;
-    if (email == null || email.isEmpty) {
-      throw FirebaseAuthException(
-        code: 'EMAIL_NULL',
-        message: 'Firebase user email is null',
-      );
-    }
-
-    final doc = await firestore.collection('users').doc(uid).get();
-
-    if (doc.exists) {
-      final data = doc.data()!;
-      return UserModel(
-        uid: data[FirestoreKeys.uid],
-        email: data[FirestoreKeys.email],
-        name: data[FirestoreKeys.name],
-        phone: data[FirestoreKeys.phone],
-        gender: data[FirestoreKeys.gender],
-      );
-    } else {
-      // fallback if user document doesn't exist
-      return UserModel(uid: uid, email: email, name: firebaseUser.displayName);
-    }
-  }
-
   @override
   Future<UserModel> signInWithEmailAndPassword({
     required String email,
@@ -74,7 +39,25 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       password: password,
     );
 
-    return _buildUserModel(userCredential.user);
+    final user = userCredential.user;
+    if (user == null) {
+      throw FirebaseAuthException(code: 'USER_NULL', message: 'No user found');
+    }
+
+    final doc = await firestore
+        .collection(FirestoreKeys.users)
+        .doc(user.uid)
+        .get();
+    if (doc.exists && doc.data() != null) {
+      final data = doc.data()!;
+      return UserModel(
+        uid: data[FirestoreKeys.uid],
+        email: data[FirestoreKeys.email],
+        name: data[FirestoreKeys.name],
+      );
+    } else {
+      return UserModel(uid: user.uid, email: email, name: user.displayName);
+    }
   }
 
   @override
@@ -88,31 +71,22 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       password: password,
     );
 
-    final firebaseUser = userCredential.user;
-    if (firebaseUser == null) {
+    final user = userCredential.user;
+    if (user == null) {
       throw FirebaseAuthException(
         code: 'USER_NULL',
-        message: 'Firebase user is null',
+        message: 'User creation failed',
       );
     }
 
-    // Update FirebaseAuth displayName too
-    await firebaseUser.updateDisplayName(name);
+    await user.updateDisplayName(name);
 
-    // Create user model
-    final userModel = UserModel(
-      uid: firebaseUser.uid,
-      email: email,
-      name: name,
-    );
+    final userModel = UserModel(uid: user.uid, email: email, name: name);
 
-    // Store user in Firestore with clear keys
-    await firestore.collection('users').doc(firebaseUser.uid).set({
-      FirestoreKeys.uid: firebaseUser.uid,
+    await firestore.collection(FirestoreKeys.users).doc(user.uid).set({
+      FirestoreKeys.uid: user.uid,
       FirestoreKeys.email: email,
       FirestoreKeys.name: name,
-      FirestoreKeys.phone: null,
-      FirestoreKeys.gender: null,
     });
 
     return userModel;

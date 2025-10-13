@@ -16,22 +16,20 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
 
   @override
   Future<void> cacheUser(UserModel user) async {
-    final userMap = user.toMap();
-    final jsonString = json.encode(userMap);
-    await Prefs.setString(PrefKeys.userKey(user.uid), jsonString);
+    final jsonString = json.encode(user.toMap());
+    await prefs.setStringInstance(PrefKeys.userKey(user.uid), jsonString);
   }
 
   @override
   Future<UserModel?> getCachedUser(String uid) async {
-    final jsonString = Prefs.getString(PrefKeys.userKey(uid));
+    final jsonString = prefs.getStringInstance(PrefKeys.userKey(uid));
     // ignore: unnecessary_null_comparison
     if (jsonString == null) return null;
-    final map = json.decode(jsonString);
-    return UserModel.fromMap(map);
+    return UserModel.fromMap(json.decode(jsonString));
   }
 
   @override
   Future<void> clearUser(String uid) async {
-    await Prefs.delete(PrefKeys.userKey(uid));
+    await prefs.deleteInstance(PrefKeys.userKey(uid));
   }
 }

@@ -4,4 +4,5 @@ class FirestoreKeys {
   static const String email = 'email';
   static const String phone = 'phone';
   static const String gender = 'gender';
+  static const String users = 'users';
 }
