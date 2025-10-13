@@ -57,7 +57,7 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.authGate,
         name: AppRoutes.authGate,
-        pageBuilder: (context, state) => AppTransitions.noTransition(
+        pageBuilder: (context, state) => AppTransitions.fade(
           context: context,
           state: state,
           child: AuthGate(),
@@ -103,7 +103,7 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.home,
         name: AppRoutes.home,
-        pageBuilder: (context, state) => AppTransitions.noTransition(
+        pageBuilder: (context, state) => AppTransitions.fade(
           context: context,
           state: state,
           child: BlocProvider(

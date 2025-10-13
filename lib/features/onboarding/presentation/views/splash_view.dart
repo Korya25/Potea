@@ -26,7 +26,7 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
     // navigat
-    Future.delayed(Duration(milliseconds: 600), () async {
+    Future.delayed(Duration(seconds: 3), () async {
       final prefs = Prefs.instance;
       final lastUid = prefs.getStringInstance(PrefKeys.lastLoggedInUid);
       final jsonString = prefs.getStringInstance(PrefKeys.userKey(lastUid));
