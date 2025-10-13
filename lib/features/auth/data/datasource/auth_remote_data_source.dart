@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:potea_app/core/models/user_model.dart';
-import 'package:potea_app/core/constants/firestore_keys.dart';
+import 'package:potea_app/core/constants/database_keys.dart';
 
 /// Remote Data Source
 abstract class AuthRemoteDataSource {
@@ -45,15 +45,15 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     }
 
     final doc = await firestore
-        .collection(FirestoreKeys.users)
+        .collection(DatabaseKeys.users)
         .doc(user.uid)
         .get();
     if (doc.exists && doc.data() != null) {
       final data = doc.data()!;
       return UserModel(
-        uid: data[FirestoreKeys.uid],
-        email: data[FirestoreKeys.email],
-        name: data[FirestoreKeys.name],
+        uid: data[DatabaseKeys.uid],
+        email: data[DatabaseKeys.email],
+        name: data[DatabaseKeys.name],
       );
     } else {
       return UserModel(uid: user.uid, email: email, name: user.displayName);
@@ -83,10 +83,10 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
     final userModel = UserModel(uid: user.uid, email: email, name: name);
 
-    await firestore.collection(FirestoreKeys.users).doc(user.uid).set({
-      FirestoreKeys.uid: user.uid,
-      FirestoreKeys.email: email,
-      FirestoreKeys.name: name,
+    await firestore.collection(DatabaseKeys.users).doc(user.uid).set({
+      DatabaseKeys.uid: user.uid,
+      DatabaseKeys.email: email,
+      DatabaseKeys.name: name,
     });
 
     return userModel;

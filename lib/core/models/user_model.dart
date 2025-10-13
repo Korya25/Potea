@@ -1,4 +1,4 @@
-import 'package:potea_app/core/constants/firestore_keys.dart';
+import 'package:potea_app/core/constants/database_keys.dart';
 
 class UserModel {
   final String uid;
@@ -16,18 +16,18 @@ class UserModel {
   });
 
   Map<String, dynamic> toMap() => {
-    FirestoreKeys.uid: uid,
-    FirestoreKeys.name: name,
-    FirestoreKeys.email: email,
-    FirestoreKeys.phone: phone,
-    FirestoreKeys.gender: gender,
+    DatabaseKeys.uid: uid,
+    DatabaseKeys.name: name,
+    DatabaseKeys.email: email,
+    DatabaseKeys.phone: phone,
+    DatabaseKeys.gender: gender,
   };
 
   factory UserModel.fromMap(Map<String, dynamic> map) => UserModel(
-    uid: map[FirestoreKeys.uid],
-    name: map[FirestoreKeys.name],
-    email: map[FirestoreKeys.email],
-    phone: map[FirestoreKeys.phone],
-    gender: map[FirestoreKeys.gender],
+    uid: map[DatabaseKeys.uid],
+    name: map[DatabaseKeys.name],
+    email: map[DatabaseKeys.email],
+    phone: map[DatabaseKeys.phone],
+    gender: map[DatabaseKeys.gender],
   );
 }
