@@ -87,11 +87,13 @@ Future<void> setupGetit() async {
   );
 
   getIt.registerLazySingleton<ProductRepository>(
-    () => ProductRepository(remoteDataSource: getIt<ProductRemoteDataSource>()),
+    () => ProductRepository(
+      remoteDataSource: getIt<ProductRemoteDataSource>(),
+      networkService: getIt<NetworkService>(),
+    ),
   );
 
   getIt.registerFactory(() => ProductCubit(getIt<ProductRepository>()));
 
-  // ✅ Wait for all async singletons
   await getIt.allReady();
 }
