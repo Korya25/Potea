@@ -30,7 +30,7 @@ class AuthGateFotterButton extends StatelessWidget {
             onTap: () => context.pushNamed(AppRoutes.signup),
             svgPath: AppAssets.email,
             title: 'Sign up with Email',
-            svgColor: AppColors.textAndIconBlack.withAlpha(220),
+            svgColor: AppColors.textAndIconWhite,
           ),
         ),
 
@@ -42,6 +42,7 @@ class AuthGateFotterButton extends StatelessWidget {
           CustomTextButton(
             fristTitle: "Already have account?",
             secondTitle: "Log in",
+            fontWeight: FontWeight.w400,
             onTap: () => context.pushNamed(AppRoutes.login),
           ),
         ),

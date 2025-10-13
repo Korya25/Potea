@@ -10,15 +10,16 @@ class AuthLogoName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      spacing: 4,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         // icon
-        Image.asset(AppAssets.appIcon, width: iconSize ?? 80),
+        Image.asset(AppAssets.appIcon, width: iconSize ?? 60),
 
         // title
         Text(
           'otea',
-          style: context.font16WhiteW300.copyWith(
+          style: context.font12WhiteW500.copyWith(
             fontSize: titleSize ?? 45,
             //
           ),

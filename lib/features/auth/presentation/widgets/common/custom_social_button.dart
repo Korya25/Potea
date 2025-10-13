@@ -19,36 +19,36 @@ class CustomSocialButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomButton(
+      hight: 55,
       onTap: onTap,
-      buttonColor: AppColors.white,
-      borderRadius: 12,
-      child: Padding(
-        padding: EdgeInsetsGeometry.symmetric(vertical: 8),
-
-        child: Padding(
-          padding: EdgeInsetsGeometry.symmetric(horizontal: 12),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              // google icon
-              // ignore: deprecated_member_use
-              SvgPicture.asset(svgPath, width: 26, color: svgColor),
-
-              // title
-              Text(
-                title,
-                style: context.font12BlackW200.copyWith(
-                  fontSize: 16,
-                  height: 1.5,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-
-              // Size Box
-              SizedBox(),
-            ],
+      buttonColor: AppColors.dBackSecondary,
+      borderRadius: 16,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          // google icon
+          // ignore: deprecated_member_use
+          SvgPicture.asset(
+            svgPath,
+            width: 26,
+            colorFilter: svgColor != null
+                ? ColorFilter.mode(svgColor!, BlendMode.srcIn)
+                : null,
           ),
-        ),
+
+          // title
+          Text(
+            title,
+            style: context.font12WhiteW500.copyWith(
+              fontSize: 16,
+
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+
+          // Size Box
+          SizedBox(),
+        ],
       ),
     );
   }

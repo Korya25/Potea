@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:potea_app/app/widgets/animations/animate_do.dart';
+import 'package:potea_app/app/theme/app_colors.dart';
 import 'package:potea_app/core/constants/app_assets.dart';
 import 'package:potea_app/core/utils/extensions/context_extensions.dart';
 import 'package:potea_app/core/utils/extensions/text_style_extension.dart';
@@ -11,9 +11,7 @@ class AuthGate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(child: SingleChildScrollView(child: _AuthGateBody())),
-    );
+    return Scaffold(body: SingleChildScrollView(child: _AuthGateBody()));
   }
 }
 
@@ -30,22 +28,20 @@ class _AuthGateBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             // image
-            AppAnimations.fadeIn(
-              delay: Duration(milliseconds: 550),
-              SizedBox(
-                height: context.screenHeight * 0.5,
-                width: context.screenWidth * 0.7,
-                child: Image.asset(AppAssets.group, fit: BoxFit.contain),
-              ),
+            SizedBox(
+              height: context.screenHeight * 0.5,
+              width: context.screenWidth * 0.7,
+              child: Image.asset(AppAssets.group, fit: BoxFit.contain),
             ),
+
             Gap(8),
 
             // title
-            AppAnimations.fadeIn(
-              delay: Duration(milliseconds: 650),
-              Text(
-                'Lets you in',
-                style: context.font16WhiteW300.copyWith(fontSize: 42),
+            Text(
+              'Lets you in',
+              style: context.font45PrimaryW800.copyWith(
+                fontWeight: FontWeight.w500,
+                color: AppColors.textAndIconWhite,
               ),
             ),
 

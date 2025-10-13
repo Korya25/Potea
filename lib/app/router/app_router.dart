@@ -62,7 +62,7 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.login,
         name: AppRoutes.login,
-        pageBuilder: (context, state) => AppTransitions.noTransition(
+        pageBuilder: (context, state) => AppTransitions.slideFromRight(
           context: context,
           state: state,
           child: LoginView(),
@@ -71,7 +71,7 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.signup,
         name: AppRoutes.signup,
-        pageBuilder: (context, state) => AppTransitions.noTransition(
+        pageBuilder: (context, state) => AppTransitions.slideFromRight(
           context: context,
           state: state,
           child: SignupView(),
@@ -80,7 +80,7 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.forgotPass,
         name: AppRoutes.forgotPass,
-        pageBuilder: (context, state) => AppTransitions.noTransition(
+        pageBuilder: (context, state) => AppTransitions.slideFromRight(
           context: context,
           state: state,
           child: ForgotPasswordView(),

@@ -19,10 +19,7 @@ class ForgotPasswordView extends StatelessWidget {
               const Gap(40),
 
               // header
-              Hero(
-                tag: HeroTags.loginForgotPassHeader,
-                child: const AuthHeader(title: 'Forgot Your Password?'),
-              ),
+              const AuthHeader(title: 'Forgot Your Password?'),
               const Gap(26),
 
               // form

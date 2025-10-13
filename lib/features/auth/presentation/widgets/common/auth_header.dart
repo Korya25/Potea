@@ -13,7 +13,7 @@ class AuthHeader extends StatelessWidget {
         AuthLogoName(),
         Gap(40),
         // title
-        Text(title, style: context.font16WhiteW300.copyWith(fontSize: 24)),
+        Text(title, style: context.font12WhiteW500.copyWith(fontSize: 24)),
       ],
     );
   }

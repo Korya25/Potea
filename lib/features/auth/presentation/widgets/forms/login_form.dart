@@ -36,7 +36,7 @@ class _LoginFormState extends State<LoginForm> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           EmailField(controller: emailController),
-          Gap(16),
+          Gap(22),
           PasswordField(controller: passwordController),
           Gap(12),
           // forgt Pass

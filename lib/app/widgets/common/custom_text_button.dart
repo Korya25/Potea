@@ -73,7 +73,7 @@ class _CustomTextButtonState extends State<CustomTextButton> {
                       ? hoverColor
                       : (widget.firstColor ?? AppColors.textAndIconWhite),
                   fontSize: widget.fontSize,
-                  fontWeight: widget.fontWeight,
+                  fontWeight: widget.fontWeight ?? FontWeight.w400,
                 ),
               ),
               if (widget.secondTitle != null)
@@ -84,7 +84,7 @@ class _CustomTextButtonState extends State<CustomTextButton> {
                         ? hoverColor
                         : (widget.secondColor ?? AppColors.textAndIconPrimary),
                     fontSize: widget.fontSize,
-                    fontWeight: widget.fontWeight,
+                    fontWeight: widget.fontWeight ?? FontWeight.w400,
                   ),
                 ),
             ],

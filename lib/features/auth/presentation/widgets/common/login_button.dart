@@ -29,8 +29,9 @@ class LoginButton extends StatelessWidget {
       },
       child: Text(
         'Login',
-        style: context.font16WhiteW300.copyWith(
+        style: context.font22WhiteW600.copyWith(
           color: AppColors.textAndIconWhite,
+          fontSize: 18,
         ),
       ),
     );
