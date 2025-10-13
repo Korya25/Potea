@@ -43,8 +43,8 @@ class CustomTextFormField extends StatelessWidget {
     );
 
     return TextFormField(
-      cursorColor: AppColors.textAndIconPrimary,
-      cursorErrorColor: AppColors.textAndIconPrimary,
+      cursorColor: AppColors.textAndIconGrey,
+      cursorErrorColor: AppColors.textAndIconGrey,
       controller: controller,
       autofillHints: autofillHints,
       autovalidateMode: autoValidateMode,
@@ -59,11 +59,15 @@ class CustomTextFormField extends StatelessWidget {
       ),
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: context.font14GreyW400.copyWith(
+        hintStyle: context.font12WhiteW500.copyWith(
           color: AppColors.textAndIconGrey,
           fontSize: 14,
         ),
 
+        errorStyle: context.font16WhiteW300.copyWith(
+          color: AppColors.red,
+          fontSize: 12,
+        ),
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         prefixIconColor: AppColors.textAndIconPrimary,

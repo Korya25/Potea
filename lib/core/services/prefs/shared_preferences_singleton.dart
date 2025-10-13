@@ -30,6 +30,14 @@ class Prefs {
     return instance._prefs.getBool(key) ?? defaultValue;
   }
 
+  static Future<void> delete(String key) async {
+    await instance._prefs.remove(key);
+  }
+
+  static Future<void> clearAll() async {
+    await instance._prefs.clear();
+  }
+
   // -------- Instance Access (for DI / testing) --------
   Future<void> setStringInstance(String key, String value) async {
     await _prefs.setString(key, value);
@@ -45,5 +53,13 @@ class Prefs {
 
   bool getBoolInstance(String key, {bool defaultValue = false}) {
     return _prefs.getBool(key) ?? defaultValue;
+  }
+
+  Future<void> deleteInstance(String key) async {
+    await _prefs.remove(key);
+  }
+
+  Future<void> clearAllInstance() async {
+    await _prefs.clear();
   }
 }

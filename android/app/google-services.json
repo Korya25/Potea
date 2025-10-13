@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "48294313909",
+    "project_id": "potea-40afb",
+    "storage_bucket": "potea-40afb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48294313909:android:5b3bcd7e9b60296682a3fc",
+        "android_client_info": {
+          "package_name": "com.example.potea"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAnSVBGKrmr1PAVgcDjEC7F6GGqsrxd4A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48294313909:android:7de24108dbad28e882a3fc",
+        "android_client_info": {
+          "package_name": "com.example.potea_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAnSVBGKrmr1PAVgcDjEC7F6GGqsrxd4A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
