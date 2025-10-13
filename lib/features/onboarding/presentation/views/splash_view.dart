@@ -1,5 +1,9 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
+import 'package:potea_app/app/router/app_routes.dart';
 import 'package:potea_app/app/theme/app_colors.dart';
 import 'package:potea_app/app/widgets/animations/animate_do.dart';
 import 'package:potea_app/core/constants/app_assets.dart';
@@ -18,6 +22,7 @@ class _SplashViewState extends State<SplashView> {
     super.initState();
     // navigat
     Future.delayed(Duration(milliseconds: 1600), () async {
+      context.goNamed(AppRoutes.authGate);
       // TODO: Add shared Pref Check Token
     });
   }

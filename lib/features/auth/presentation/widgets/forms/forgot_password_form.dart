@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:potea_app/app/widgets/common/custom_button.dart';
 import 'package:potea_app/app/widgets/fields/email_field.dart';
