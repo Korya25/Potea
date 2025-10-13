@@ -64,6 +64,10 @@ class CustomTextFormField extends StatelessWidget {
           fontSize: 14,
         ),
 
+        errorStyle: context.font16WhiteW300.copyWith(
+          color: AppColors.red,
+          fontSize: 12,
+        ),
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         prefixIconColor: AppColors.textAndIconPrimary,

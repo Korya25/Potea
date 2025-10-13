@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import 'package:potea_app/app/widgets/common/custom_button.dart';
+import 'package:go_router/go_router.dart';
 import 'package:potea_app/app/widgets/fields/email_field.dart';
+import 'package:potea_app/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:potea_app/features/auth/presentation/cubit/auth_state.dart';
 import 'package:potea_app/features/auth/presentation/widgets/common/auth_button.dart';
 
 class ForgotPasswordForm extends StatefulWidget {
@@ -22,12 +25,6 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
     super.dispose();
   }
 
-  void _submit() {
-    if (formKey.currentState?.validate() ?? false) {
-      // context.read<AuthCubit>().forgotPassword(emailController.text.trim());
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -38,7 +35,34 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
           EmailField(controller: emailController),
           const Gap(24),
 
-          AuthButton(title: 'Send Reset Link', onTap: () {}),
+          BlocConsumer<AuthCubit, AuthState>(
+            listener: (context, state) {
+              if (state is AuthPasswordResetEmailSent) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Password reset email sent')),
+                );
+                context.pop();
+              } else if (state is AuthError) {
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(SnackBar(content: Text(state.message)));
+              }
+            },
+            builder: (context, state) {
+              final isLoading = state is AuthLoading;
+              return AuthButton(
+                isLoading: isLoading,
+                title: 'Send Reset Link',
+                onTap: () {
+                  if (formKey.currentState!.validate()) {
+                    context.read<AuthCubit>().sendPasswordResetEmail(
+                      email: emailController.text.trim(),
+                    );
+                  }
+                },
+              );
+            },
+          ),
         ],
       ),
     );

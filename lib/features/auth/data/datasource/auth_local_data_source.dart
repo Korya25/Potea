@@ -18,6 +18,7 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
   Future<void> cacheUser(UserModel user) async {
     final jsonString = json.encode(user.toMap());
     await prefs.setStringInstance(PrefKeys.userKey(user.uid), jsonString);
+    await prefs.setStringInstance(PrefKeys.lastLoggedInUid, user.uid);
   }
 
   @override

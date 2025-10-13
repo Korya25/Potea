@@ -9,6 +9,7 @@ class AuthButton extends StatelessWidget {
   final Color? backgroundColor;
   final Color? textColor;
   final double? fontSize;
+  final bool? isLoading;
 
   const AuthButton({
     super.key,
@@ -17,21 +18,24 @@ class AuthButton extends StatelessWidget {
     this.backgroundColor,
     this.textColor,
     this.fontSize,
+    this.isLoading = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return CustomButton(
       onTap: onTap,
-      buttonColor: backgroundColor ?? AppColors.dBackSecondary,
-      borderRadius: 8,
-      child: Text(
-        title,
-        style: context.font22WhiteW600.copyWith(
-          color: textColor ?? AppColors.textAndIconWhite,
-          fontSize: fontSize ?? 18,
-        ),
-      ),
+      buttonColor: backgroundColor ?? AppColors.primary,
+      borderRadius: 10,
+      child: isLoading == true
+          ? CircularProgressIndicator(color: AppColors.textAndIconWhite)
+          : Text(
+              title,
+              style: context.font22WhiteW600.copyWith(
+                color: textColor ?? AppColors.textAndIconWhite,
+                fontSize: fontSize ?? 18,
+              ),
+            ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:potea_app/app/widgets/common/custom_text_field.dart';
+import 'package:potea_app/core/utils/extensions/validators.dart';
 
 class PasswordField extends StatefulWidget {
   const PasswordField({super.key, required this.controller});
@@ -20,7 +21,7 @@ class _PasswordFieldState extends State<PasswordField> {
       controller: widget.controller,
       hintText: "Enter your password",
       obscureText: _obscure,
-      //  validator: Validators.password,
+      validator: Validators.password,
       autofillHints: const [AutofillHints.password],
       prefixIcon: const Icon(Icons.lock_outline),
       suffixIcon: IconButton(
