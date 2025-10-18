@@ -4,7 +4,8 @@ import 'package:potea_app/app/widgets/common/custom_error_widget.dart';
 import 'package:potea_app/core/utils/extensions/context_extensions.dart';
 import 'package:potea_app/features/home/presentation/cubit/product_cubit.dart';
 import 'package:potea_app/features/home/presentation/cubit/product_state.dart';
-import 'package:potea_app/features/home/presentation/widgets/header/home_view_header.dart';
+import 'package:potea_app/features/home/presentation/widgets/home_body/home_product_loaded.dart';
+import 'package:potea_app/features/home/presentation/widgets/home_header/home_view_header.dart';
 
 class ProductBlocBulider extends StatelessWidget {
   const ProductBlocBulider({super.key});
@@ -21,7 +22,7 @@ class ProductBlocBulider extends StatelessWidget {
             },
           );
         } else if (state is ProductLoaded) {
-          return Container();
+          return HomeProductLoaded();
         } else if (state is ProductError) {
           return Center(
             child: CustomErrorWidget(

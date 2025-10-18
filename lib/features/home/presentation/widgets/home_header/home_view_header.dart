@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:potea_app/core/constants/database_keys.dart';
 import 'package:potea_app/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:potea_app/features/auth/presentation/cubit/auth_state.dart';
-import 'package:potea_app/features/home/presentation/widgets/header/header_actions.dart.dart';
-import 'package:potea_app/features/home/presentation/widgets/header/header_user_info.dart.dart';
+import 'package:potea_app/features/home/presentation/widgets/home_header/header_actions.dart.dart';
+import 'package:potea_app/features/home/presentation/widgets/home_header/header_user_info.dart.dart';
 
 class HomeViewHeader extends StatelessWidget {
   const HomeViewHeader({super.key});

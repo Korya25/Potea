@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:potea_app/app/widgets/animations/asset_image_with_shimmer.dart';
-import 'package:potea_app/app/widgets/animations/image_with_shimmer.dart';
 import 'package:potea_app/app/widgets/animations/type_writer_text.dart';
 import 'package:potea_app/core/utils/extensions/context_extensions.dart';
 import 'package:potea_app/core/utils/extensions/text_style_extension.dart';
