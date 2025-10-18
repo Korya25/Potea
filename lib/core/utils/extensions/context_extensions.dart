@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 extension ContextExtensions on BuildContext {
   ThemeData get theme => Theme.of(this);
@@ -27,4 +28,8 @@ extension StringLimitExtension on String {
     if (parts.length == 1) return parts.first;
     return '${parts[0]} ${parts[1]}';
   }
+}
+
+extension SkeletonizerExtension on Widget {
+  Widget get skeletonizer => Skeletonizer(enabled: true, child: this);
 }

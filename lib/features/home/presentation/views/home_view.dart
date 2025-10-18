@@ -13,7 +13,7 @@ class HomeView extends StatelessWidget {
         backgroundColor: AppColors.dBackPrimary,
         title: HomeViewHeader(),
       ),
-      body: ProductBlocBuilder(),
+      body: ProductBlocBulider(),
     );
   }
 }
